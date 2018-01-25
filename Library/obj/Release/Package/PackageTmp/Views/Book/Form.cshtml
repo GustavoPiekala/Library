@@ -1,0 +1,49 @@
+﻿@model Library.Entities.Book
+
+@using (Html.BeginForm("Save", "Book", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(false, "Por Favor, corrija os erros abaixo:")
+
+    @Html.ValidationMessageFor(b => b.Title, "*")
+    @Html.LabelFor(b => b.Title, "Titulo:")
+    @Html.TextBoxFor(b => b.Title,
+    new { @class = "form-control",
+    @placeholder = "Informe o Título do Livro..." })
+
+    @Html.ValidationMessageFor(b => b.Description, "*")
+    @Html.LabelFor(b => b.Description, "Descrição:")
+    @Html.TextBoxFor(b => b.Description,
+    new { @class = "form-control",
+    @placeholder = "Informe a Descrição do Livro..." })
+
+
+    @Html.ValidationMessageFor(b => b.CategoryId, "*")
+    @Html.LabelFor(b => b.CategoryId, "Categoria:")
+    @Html.DropDownListFor(b => b.CategoryId,
+    new SelectList(ViewBag.Category, "Id", "Name"),
+    new { @class = "form-control" })
+
+
+    @Html.ValidationMessageFor(b => b.ReleaseYear, "*")
+    @Html.LabelFor(b => b.ReleaseYear, "Ano:")
+    @Html.TextBoxFor(b => b.ReleaseYear,
+    new { @class = "form-control",
+    @type = "number" ,
+    @placeholder ="Informe o Ano de Lançamento do Livro..."})
+
+
+    @Html.ValidationMessageFor(b => b.ImgPath, "*")
+    @Html.LabelFor(b => b.ImgPath, "Imagem:")
+    @Html.TextBoxFor(b => b.ImgPath,
+    new { @class = "form-control",
+    @placeholder = "Informe a URL da Imagem do Livro..."})
+
+
+
+    <br />
+    <input type="submit" value="Salvar" />
+
+}
+
+

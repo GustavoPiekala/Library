@@ -1,0 +1,42 @@
+﻿@model Library.Entities.Book
+
+@{
+    ViewBag.Title = "Visualizar Livro";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><b>@Html.DisplayFor(b => b.Title)</b></h3>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+
+            <dt>
+               @Html.LabelFor(b => b.Description, "Descrição:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(b => b.Description).
+            </dd>
+
+            <dt>
+                @Html.LabelFor(b => b.Category.Name, "Categoria:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(b => b.Category.Name).
+            </dd>
+
+            <dt>
+                @Html.LabelFor(b => b.ReleaseYear, "Ano de Lançamento:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(b => b.ReleaseYear).
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Voltar Para a Lista", "Index", null, new { @class = "btn btn-primary" })
+</p>

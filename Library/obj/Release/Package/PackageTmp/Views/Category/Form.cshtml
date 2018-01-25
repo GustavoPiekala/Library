@@ -1,0 +1,13 @@
+﻿@model Library.Entities.Category
+
+@using (Html.BeginForm("Save", "Category", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.Name, "Nome:")
+    @Html.TextBoxFor(c => c.Name, new {@class = "form-control", @placeholder = "Informe o Nome da Categoria..." })
+    @Html.ValidationMessageFor(c => c.Name, "", new { @class = "text-danger" })
+
+    <br />
+
+    <input type="submit" value="Salvar"/>
+
+}

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Altera Categoria";
+}
+
+@model Library.Entities.Category
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(c => c.Id, "Id:")
+    <br />
+    @Html.TextBoxFor(c => c.Id, new { @class = "form-control", disabled = "disabled" })
+
+    <br />
+    @Html.LabelFor(c => c.Name, "Nome:")
+    @Html.EditorFor(c => c.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe o Nome da Categoria..." } })
+    @Html.ValidationMessageFor(c => c.Name, "", new { @class = "text-danger" })
+    <br />
+    <input type="submit" value="Atualizar" />
+
+
+}

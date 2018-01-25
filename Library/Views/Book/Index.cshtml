@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Livros";
+}
+
+@model IList<Library.Entities.Book>
+
+@Html.ActionLink("Cadastrar Livro", "Form", "Book", null, new { @class = "btn btn-default" })
+
+<div class="divPesquisa">
+
+    @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {
+        <div class="input-group">
+            @Html.TextBox("titleBook", null, null, new { @class = "form-control", @placeholder = "Informe o Título do Livro..." })
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Pesquisar</button>
+            </span>
+        </div>
+    }
+
+</div>
+
+<div id="divBookList" class="row">
+
+    @foreach (var book in Model)
+    {
+        <div id="divThumb" class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <a href="/Book/ViewBook/@book.Id">
+                    <img class="bookThumbnail" src="@book.ImgPath" alt="@book.Title">
+                </a>
+                <h3>
+                    @{
+                        string title = book.Title.Trim();
+
+                        if (title.Length > 15)
+                        {
+                            title = title.Substring(0, 15) + "...";
+                        }
+                    }
+
+                    @title
+                </h3>
+
+                <p>
+                    @Html.ActionLink("Editar", "Update",
+                                   new { id = book.Id },
+                                   new { @class = "btn btn-primary" })
+
+                    @Html.ActionLink("Excluir", "Delete",
+                                   new { id = book.Id },
+                                   new { @class = "btn btn-danger" })
+                </p>
+            </div>
+
+        </div>
+    }
+
+</div>

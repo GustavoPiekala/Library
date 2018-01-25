@@ -1,0 +1,51 @@
+﻿input {
+    margin: 0.5em;
+}
+
+    input[type=submit] {
+        background-color: rgb(66,139,202);
+        border: 0;
+        padding: .5em;
+        color: white;
+    }
+
+select {
+    margin: 0.5em 0.5em 0;
+    padding: .5em;
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #ffd6d6;
+}
+
+aside ul {
+    padding: 0;
+}
+
+    aside ul li {
+        list-style-type: none;
+        margin: .5em 1em;
+    }
+
+.field-validation-valid{
+    display:none;
+}
+
+.validation-summary-errors{
+    font-weight: bold;
+    color: #d00101;
+}
+
+.validation-summary-valid{
+    display: none;
+}
+
+.divPesquisa{
+    margin-top: 10px;
+    width: 500px;
+}

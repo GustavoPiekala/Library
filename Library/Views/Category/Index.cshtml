@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Categorias";
+}
+
+@model IList<Library.Entities.Category>
+
+@Html.ActionLink("Cadastrar Categoria", "Form", null, new { @class = "btn btn-default" })
+<br /><br />
+<table class="table table-hover table-bordered">
+    <thead>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Ações</th>
+    </thead>
+
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>
+                    @Html.ActionLink(" ", "Delete",
+                              new { id = category.Id },
+                              new { @class = "glyphicon glyphicon-trash btn btn-default btn-sm" })
+
+                    @Html.ActionLink(" ", "Update",
+                              new { id = category.Id },
+                              new { @class = "glyphicon glyphicon-pencil btn btn-default btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
